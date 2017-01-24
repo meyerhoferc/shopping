@@ -9,6 +9,12 @@ get '/' do
   erb :index
 end
 
+get '/cart' do
+  @item = params["item"]
+  @price = params["price"]
+  erb :cart
+end
+
 # Practice with Form Params
 
 get '/items/new' do
@@ -16,9 +22,21 @@ get '/items/new' do
 end
 
 post '/items' do
+  @item = params["item"]
+  @price = params["price"]
   erb :cart
 end
 
 get '/users/new' do
   erb :new_user
+end
+
+get '/users' do
+  erb :users
+end
+
+post '/users' do
+  @username = params["username"]
+  @password = params["password"]
+  erb :users
 end
